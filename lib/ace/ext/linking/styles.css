@@ -1,0 +1,96 @@
+/*
+ * Requires local copy of WebSharks Core.
+ */
+/*
+ * Semantic colors.
+ */
+/*
+ * Fancy blockquotes.
+ */
+/*
+ * Fancy monospace tags.
+ */
+/*
+ * Social network colors.
+ */
+/*
+ * Name that color!
+ * <http://chir.ag/projects/name-that-color>
+ */
+/*
+ * Pixels to rem.
+ */
+/*
+ * Fancy blockquotes.
+ */
+/*
+ * Fancy monospace tags.
+ */
+/*
+ * Fancy navigation menus.
+ */
+/*
+ * Fancy pagination menus.
+ */
+/*
+ * Fancy placeholders.
+ */
+/*
+ * Pixels to rem.
+ */
+/*
+ * Mixins for responsive tweaks.
+ * See: <http://semantic-ui.com/elements/container.html>
+ * See: <http://semantic-ui.com/collections/grid.html#device-visibility>
+ * See: <http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css>
+ */
+/*
+ * Larger fonts.
+ */
+/*
+ * Responsive images.
+ */
+/*
+ * Highlight.js <pre><code>.
+ */
+/*
+ * Mixins for responsive tweaks.
+ * See: <http://semantic-ui.com/elements/container.html>
+ * See: <http://semantic-ui.com/collections/grid.html#device-visibility>
+ * See: <http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css>
+ */
+/*
+ * Align utils.
+ */
+/*
+ * Blurred utils.
+ */
+/*
+ * Box shadow utilities.
+ */
+/*
+ * Content utils.
+ */
+/*
+ * Display utils.
+ */
+/*
+ * Line clamp utils.
+ */
+/*
+ * Muted utils.
+ */
+/*
+ * Responsive utils.
+ */
+/*
+ * Text shadow utilities.
+ */
+.ace_marker-layer .ace_linking {
+  pointer-events: auto;
+  cursor: pointer;
+  position: absolute;
+  border-bottom: 1px dotted #00f;
+}
+
+/*# sourceMappingURL=styles.css.map */

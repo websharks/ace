@@ -1,0 +1,16 @@
+{
+  "compileOnSave": true,
+  "buildOnSave": false,
+
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+
+    "target": "es5",
+    "module": "umd"
+  },
+  "filesGlob": [
+    "./er.ts"
+  ]
+}

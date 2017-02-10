@@ -1,0 +1,13 @@
+/*
+ * Requires local copy of WebSharks Core.
+ */
+@import '../../../../../core/src/client-s/css/env';
+
+.ace_marker-layer {
+  .ace_linking {
+    pointer-events:           auto;
+    cursor:                   pointer;
+    position:                 absolute;
+    border-bottom:            1px dotted $blue-color;
+  }
+}

@@ -1,0 +1,12 @@
+/*
+ * Requires local copy of WebSharks Core.
+ */
+@import '../../../../../core/src/client-s/css/env';
+
+.ace_marker-layer {
+  .ace_typo {
+    border-radius:            0;
+    position:                 absolute;
+    border-bottom:            1px solid $red-color;
+  }
+}

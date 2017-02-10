@@ -1,0 +1,473 @@
+/*
+ * Requires local copy of WebSharks Core.
+ */
+@import '../../../../core/src/client-s/css/env';
+
+.ace-dark-theme {
+  // Primary colors.
+  color:                      $white-color;
+  background-color:           $woodsmoke-color;
+  box-shadow:                 inset 0 0 1px 0 transparentize($black-color, 0.25);
+
+  .ace_search {
+    // Popup search box.
+    max-width:                350px;
+
+    .ace_searchbtn {
+      // All buttons in the search box.
+      width:                  auto;
+      min-width:              25px;
+    }
+  }
+
+  .ace_gutter {
+    // The gutter w/ line numbers.
+    color:                    transparentize($white-color, 0.75);
+    background-color:         darken($woodsmoke-color, 2);
+
+    .ace_gutter-active-line {
+      // Active line represented inside gutter.
+      background-color:       darken($woodsmoke-color, 4);
+    }
+  }
+
+  .ace_scrollbar {
+    // Scrollbars.
+
+    // Safari fix.
+    // Default `6` no worky.
+    z-index:                  3;
+
+    // Scrollbar component.
+    &::-webkit-scrollbar {
+      width:                 .75rem;
+    }
+
+    // Button components (old school).
+    &::-webkit-scrollbar-button {
+      display:                none;
+    }
+
+    // The background track.
+    &::-webkit-scrollbar-track {
+      background:             none;
+    }
+
+    // The part people use.
+    &::-webkit-scrollbar-thumb {
+      min-height:             5em;
+      border-radius:         .25rem;
+      background:             lighten($woodsmoke-color, 20);
+      border:                 1px solid transparentize($black-color, 0.5);
+
+      &:active,
+      &:hover {
+        background:           lighten($woodsmoke-color, 25);
+        border-color:         transparentize($black-color, 0.25);
+      }
+    }
+  }
+
+  .ace_cursor-layer {
+    .ace_cursor {
+      // Cursor.
+      color:                  $white-color;
+    }
+  }
+
+  .ace_print-margin-layer {
+    .ace_print-margin {
+      // Margin line.
+      width:                  1px;
+      background-color:       lighten($woodsmoke-color, 3);
+    }
+  }
+
+  .ace_marker-layer {
+    .ace_bracket {
+      // A bracket marker.
+      // However, it seems that only matching brackets
+      // receive this class right now. Separating anyway.
+      border-radius:         .1em;
+      background-color:       transparentize($white-color, 0.85);
+
+      .ace_start {
+        // A starting/matching bracket.
+        border:               1px dashed $alto-color;
+      }
+    }
+
+    .ace_active-line {
+      // The active line.
+      background-color:       darken($woodsmoke-color, 2);
+    }
+
+    .ace_selection {
+      // Any type of selection.
+      background-color:       transparentize($white-color, 0.85);
+    }
+
+    .ace_selected-word {
+      // A selected word.
+      border-radius:         .1em;
+      box-shadow:             0 0 0 1px transparentize($white-color, 0.65);
+
+      ~ .ace_selection.ace_start {
+        // This is actually the currently selected word.
+        // Others may be selected too, but w/o the `.ace_start` class on them.
+        // In short, all others are just instances of the currently selected word.
+        box-shadow:           0 0 0 1px transparentize($yellow-color, 0.65);
+        background-color:     transparentize($yellow-color, 0.65);
+      }
+    }
+
+    .ace_linking {
+      // A clickable link; e.g., on hover.
+      border-bottom:          1px dotted $cornflower-blue-color;
+    }
+
+    .ace_typo {
+      // A typographical error.
+      border-bottom:          1px solid $red-color;
+    }
+  }
+
+  &.ace_multiselect {
+    .ace_marker-layer {
+      // Multiple words selected at the same time.
+      // e.g., When using search to product multiple cursors.
+      .ace_selected-word {
+        box-shadow:           none;
+      }
+
+      ~ .ace_selection.ace_start {
+        // Current in multiple selections.
+        // e.g., Current selection when searching/replacing.
+        box-shadow:           none;
+      }
+    }
+  }
+
+  .ace_text-layer {
+    .ace_fold {
+      // Fold widgets.
+      border-color:           $alto-color;
+      background-color:       $danube-color;
+    }
+
+    .ace_invisible {
+      // Invsible tabs, etc.
+      color:                  lighten($woodsmoke-color, 3);
+
+      &.ace_invisible_eol,
+      &.ace_invisible_space {
+        // Invisible EOL and spaces.
+        color:                lighten($woodsmoke-color, 5);
+      }
+    }
+
+    .ace_indent-guide {
+      // Indentation guides.
+      background:             url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWMQERFpYLC1tf0PAAgOAnPnhxyiAAAAAElFTkSuQmCC') right repeat-y;
+    }
+
+    .ace_comment {
+      // A code comment.
+      opacity:               .35;
+    }
+
+    .ace_heading {
+      // e.g., A MD heading.
+      font-weight:            bold;
+      color:                  $anakiwa-color;
+
+      &.ace_markup {
+        // e.g., # --- heading markup in MD.
+        opacity:             .5 !important;
+      }
+
+      ~ .ace_strong,
+      ~ .ace_emphasis {
+        // Bold/italic in a heading.
+        color:                $anakiwa-color !important;
+      }
+
+      ~ .ace_strong {
+        // Bold in a heading.
+        font-weight:          bolder !important;
+      }
+    }
+
+    .ace_paren {
+      // e.g., () {} []
+      &.ace_lparen,
+      &.ace_rparen {
+        opacity:             .75;
+      }
+    }
+
+    .ace_operator {
+      // = <>, etc.
+      opacity:               .75;
+    }
+
+    .ace_punctuation {
+      // Any punctuation.
+      opacity:               .75;
+    }
+
+    .ace_underline {
+      // Something w/ underline.
+      text-decoration:        underline;
+    }
+
+    .ace_string:not(.ace_other) {
+      // Define early because this is generic.
+      // i.e., Any 'string'; there are many.
+      color:                  $asparagus-color;
+    }
+
+    .ace_escape {
+      // Escape \ + escaped char; e.g., \'
+      font-weight:            bold;
+      color:                  $beryl-green-color;
+    }
+
+    .ace_url {
+      // A URL.
+      text-decoration:        underline;
+      color:                  $cornflower-blue-color;
+
+      &.ace_link-url {
+        // Markdown links.
+        opacity:              0.75;
+        text-decoration:      none;
+
+        &:hover {
+          opacity:            1;
+        }
+      }
+
+      &.ace_image-url {
+        // Leads to an image.
+        text-decoration:      none;
+        color:                $santa-fe-color;
+      }
+    }
+
+    .ace_tag-open,
+    .ace_tag-name,
+    .ace_end-tag-open,
+    .ace_tag-close {
+      // Tag components.
+      font-weight:            bold;
+      color:                  $muesli-color;
+    }
+
+    .ace_attribute-name {
+      // Tag attributes.
+      color:                  $roman-color;
+    }
+
+    .ace_class {
+      // A language class name.
+      font-weight:            bold;
+      color:                  $ronchi-color;
+    }
+
+    .ace_type {
+      // e.g., public, protected, private.
+      color:                  $nepal-color;
+    }
+
+    .ace_variable {
+      // Language variables & parameters.
+      color:                  $bermuda-gray-color;
+
+      .ace_language {
+        // e.g., this, super, self, etc.
+        color:                $bermuda-gray-color;
+      }
+    }
+
+    .ace_keyword {
+      // Language keywords.
+      &:not(.ace_operator) {
+        // Excluding = <>, etc.
+        color:                $laser-color;
+      }
+    }
+
+    .ace_blockquote {
+      // A blockquote.
+      opacity:               .5;
+      font-style:             italic;
+
+      &.ace_markup {
+        // e.g., > markup in MD.
+        opacity:             .35;
+      }
+    }
+
+    .ace_list {
+      // A MD list item.
+      color:                  $kangaroo-color;
+
+      &.ace_markup {
+        // e.g., - * list markup in MD.
+        opacity:             .5;
+      }
+    }
+
+    .ace_constant {
+      // Language constants and misc. symbols.
+      color:                  $raw-sienna-color;
+
+      &.ace_numeric {
+        // Numeric values.
+        font-weight:          lighten($raw-sienna-color, 5);
+      }
+
+      &.ace_definition,
+      &.ace_reference {
+        // MD definitions/references.
+
+        &.ace_abbr-id {
+          // *[ABBR] IDs.
+          opacity:            0.75;
+          text-decoration:    none;
+          color:              $coriander-color;
+          border-bottom:      1px dashed transparentize($white-color, 0.5);
+        }
+
+        &.ace_footnote-id {
+          // [^1]: Footnote IDs.
+          opacity:            0.75;
+          color:              $cornflower-blue-color;
+        }
+
+        &.ace_link-id {
+          // [link]: IDs.
+          opacity:            0.75;
+          color:              $cornflower-blue-color;
+        }
+      }
+    }
+
+    .ace_function {
+      // A language function and code in MD.
+      color:                  $brandy-color;
+
+      &.ace_name {
+        // Function definition.
+        font-weight:          bold;
+      }
+
+      &.ace_inline-code {
+        // Inline code blocks.
+        font-family:          $monospace;
+        color:                $flax-color;
+      }
+
+      &.ace_fenced-code-block {
+        // Fenced code blocks.
+        font-family:          $monospace;
+        color:                $flax-color;
+      }
+
+      &.ace_indented-code-block {
+        // Indented code blocks.
+        opacity:             .75;
+      }
+    }
+
+    .ace_markup {
+      &.ace_hr {
+        // MD HR.
+        opacity:             .5;
+      }
+
+      &.ace_strong {
+        // Bold text.
+        font-weight:          bold;
+      }
+
+      &.ace_emphasis {
+        // Italic text.
+        font-style:           italic;
+      }
+
+      &.ace_checkbox {
+        // MD checkbox.
+        color:                $fuzzy-wuzzy-brown-color;
+      }
+
+      &.ace_attributes {
+        // e.g., MD {attributes}.
+        color:                $fuzzy-wuzzy-brown-color;
+      }
+    }
+
+    .ace_string.ace_other:not(.ace_url) {
+      // Some other string flavor.
+      color:                  $fern-color;
+
+      &.ace_regexp {
+        // Regular expression.
+        font-weight:          bold;
+        color:                $porsche-color;
+      }
+
+      &.ace_link-text {
+        // MD link text.
+        text-decoration:      underline;
+        color:                $cornflower-blue-color;
+      }
+
+      &.ace_image-as-link-text {
+        // MD image as link text.
+        color:                $santa-fe-color;
+      }
+
+      &.ace_link-title {
+        // The 'title' portion of a MD link.
+        color:                $fountain-blue-color;
+      }
+
+      &.ace_image-alt {
+        // [alt text] in MD images.
+        opacity:              0.75;
+        color:                $fountain-blue-color;
+      }
+
+      &.ace_image-title {
+        // The 'title' portion of a MD image.
+        color:                $fountain-blue-color;
+      }
+
+      &.ace_abbr-desc {
+        // *[ABBR]: Description.
+        opacity:             .75;
+        color:                $white-color;
+      }
+
+      &.ace_footnote {
+        // [^1]: Footnote.
+        opacity:             .75;
+        color:                $white-color;
+      }
+    }
+  }
+
+  .ace_invalid {
+    // Errors, warnings, etc.
+    color:                    $white-color;
+    background-color:         $red-berry-color;
+
+    &.ace_deprecated {
+      // Decpreated notices.
+      color:                  $pumice-color;
+      background-color:       $london-hue-color;
+    }
+  }
+}
