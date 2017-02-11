@@ -113,7 +113,7 @@ export class SpellChecker {
       wordChars = this.wordChars;
 
     let escRegex = this.escRegex.bind(this),
-      esc0NoVws = this.esc0NoVws.bind(this);
+      m0EscNoVws = this.m0EscNoVws.bind(this);
 
     let sw = 'a'; // Stop words.
     // These are common stop words.
@@ -175,25 +175,25 @@ export class SpellChecker {
 
     // Remove URLs from MD link definitions.
     // This must come before we remove `[]` brackets.
-    this.regexToStripFillLinkDefinitions = new RegExp('^([' + h + ']{0,3}\\[' + esc0NoVws('[]') + '\\]:[' + h + ']*)((?:<)?(?:[^' + s + '<>]*)(?:>)?)', 'ugi');
+    this.regexToStripFillLinkDefinitions = new RegExp('^([' + h + ']{0,3}\\[' + m0EscNoVws('[]') + '\\]:[' + h + ']*)((?:<)?(?:[^' + s + '<>]*)(?:>)?)', 'ugi');
 
     // This removes everything but `[alt text]` from images, which we do spell check.
     // Note: Must do images separately anyway (and first) because JS doesn't support recursion in the next step.
-    this.regexToStripFillImages = new RegExp('(!\\[)(' + esc0NoVws('[]') + ')(\\]\\(' + esc0NoVws('()') + '\\)(?:\\{' + esc0NoVws('{}') + '\\})?)', 'ugi');
+    this.regexToStripFillImages = new RegExp('(!\\[)(' + m0EscNoVws('[]') + ')(\\]\\(' + m0EscNoVws('()') + '\\)(?:\\{' + m0EscNoVws('{}') + '\\})?)', 'ugi');
 
     // This removes everything but the `[text]` in links and the `[text]` in references, which we do spell check.
     // Note: The `(/path)` and `{attributes}` are optional in this pattern, which allows for `[link][id]` references to be handled also.
     // It's important for this pattern to require one or the other though; i.e., so shortcodes can be handled next. So, either `[]()` or `[][]`, and that's it.
-    this.regexToStripFillLinks = new RegExp('(\\[)(' + esc0NoVws('[]') + ')(\\])((?:\\(' + esc0NoVws('()') + '\\)|\\[' + esc0NoVws('[]') + '\\])(?:\\{' + esc0NoVws('{}') + '\\})?)', 'ugi');
+    this.regexToStripFillLinks = new RegExp('(\\[)(' + m0EscNoVws('[]') + ')(\\])((?:\\(' + m0EscNoVws('()') + '\\)|\\[' + m0EscNoVws('[]') + '\\])(?:\\{' + m0EscNoVws('{}') + '\\})?)', 'ugi');
 
     // This removes anything else in `[brackets]` that's not MD `[text]` that was preserved for spell checking.
     // For example, all WP shortcodes are removed here. Not the shortcode content, but all of the open/closing tags.
     // Note the `.` in this pattern covers the previous fill i.e., to avoid dropping the remaining `[text].` we need to check.
-    this.regexToStripFillSquareBrackets = new RegExp('\\[' + esc0NoVws('[]') + '\\](?!' + escRegex(dot, true) + ')', 'ugi');
+    this.regexToStripFillSquareBrackets = new RegExp('\\[' + m0EscNoVws('[]') + '\\](?!' + escRegex(dot, true) + ')', 'ugi');
 
     // Remove any remaining `{}` brackets; e.g., MD attributes.
     // For example, there may still be some of these in ATX-style headings.
-    this.regexToStripFillCurlyBrackets = new RegExp('\\{' + esc0NoVws('{}') + '\\}', 'ugi');
+    this.regexToStripFillCurlyBrackets = new RegExp('\\{' + m0EscNoVws('{}') + '\\}', 'ugi');
 
     // Remove anything that looks like a URL.
     this.regexToStripFillUrls = new RegExp('(?:^|[^' + wordChars + '])(?:[a-z][a-z0-9+.\\-]*:)?/{2}[^' + s + ']*', 'ugi');
@@ -381,8 +381,9 @@ export class SpellChecker {
     return str.replace(inCharClass ? this._escRegExp2 : this._escRegExp1, '\\$&');
   } // Escapes regex meta-characters.
 
-  protected esc0NoVws(escapableChars: string, ungreedy?: boolean | undefined): string {
-    return '(?:[^' + this.escRegex(escapableChars, true) + '\\\\]|\\\\[^' + this.v + '])*' + (ungreedy ? '?' : '');
+  protected m0EscNoVws(escapableChars: string, ungreedy?: boolean | undefined): string {
+    escapableChars = this.escRegex(escapableChars, true);
+    return '(?:[^' + this.v + escapableChars + '\\\\]|\\\\[' + escapableChars + '])*' + (ungreedy ? '?' : '');
   } // An escaped (possibly 0-byte length) string w/o vertical whitespace.
 
   /*
