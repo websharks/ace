@@ -446,7 +446,7 @@
 
 .ace-light-theme .ace_text-layer .ace_md.ace_heading {
   font-weight: bold;
-  color: #062a78;
+  color: #000;
 }
 
 .ace-light-theme .ace_text-layer .ace_md.ace_heading.ace_markup {
@@ -455,7 +455,7 @@
 
 .ace-light-theme .ace_text-layer .ace_md.ace_heading ~ .ace_strong,
 .ace-light-theme .ace_text-layer .ace_md.ace_heading ~ .ace_emphasis {
-  color: #062a78;
+  color: #000;
 }
 
 .ace-light-theme .ace_text-layer .ace_md.ace_heading ~ .ace_strong {
