@@ -6,7 +6,7 @@
 /*
  * Theme.
  */
-$theme: 'dark';
+$theme: 'example';
 
 /*
  * Primary colors.
@@ -138,7 +138,7 @@ $md-image-alt-text-color: $fountain-blue-color;
 $md-image-url-color: $santa-fe-color;
 $md-image-title-color: $oriental-pink-color;
 
-$md-list-color: $fg-color;
+$md-list-color: $kangaroo-color;
 $md-checkbox-color: $fuzzy-wuzzy-brown-color;
 $md-attributes-color: $contessa-color;
 
@@ -155,8 +155,8 @@ $md-footnote-desc-color: transparentize($fg-color, 0.25);
 $error-color: $white-color;
 $error-bg-color: $red-berry-color;
 
-$warning-color: $white-color;
-$warning-bg-color: $fire-color;
+$warning-color: $pumice-color;
+$warning-bg-color: $london-hue-color;
 
 /*
  * Selectors.

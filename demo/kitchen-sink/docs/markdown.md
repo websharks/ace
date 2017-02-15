@@ -1,3 +1,38 @@
+## Heading {.attr}
+
+## Sub-Heading
+
+- List item.
+- [ ] List item.
+  - [x] List item.
+  - List item.
+    - List item.
+
+1. List item.
+2. List item.
+  1. List item.
+  2. List item.
+    3. List item.
+
+### Another Sub-Heading {.attr}
+
+Some `inline code` and a footnote[^1] reference.
+
+```php
+echo 'Hello world';
+function test(string $param): string {
+  echo basename('/hello/world.md');
+}
+```
+
+A [link](http://example.com) example. And [another](http://example.com "Example").
+
+An [![image](/path/to/image.png)](http://example.com "Link")
+
+An ![image](/path/to/image.png) by itself.
+
+---
+
 Ace (Ajax.org Cloud9 Editor)
 ============================
 
@@ -184,3 +219,16 @@ Address: Ajax.org B.V.
   Keizersgracht 241
   1016 EA, Amsterdam
   the Netherlands
+
+[^1]: A footnote.
+  On multiple lines.
+[^2]: Another footnote.
+
+*[ABBR]: Abbreviation.
+*[ABBR1]: Abbreviation.
+*[ABBR2]: Abbreviation.
+
+[link]: http://example.com "Title"
+[google]: <https://google.com>
+[github]: <https://github.com>
+[yahoo]: https://yahoo.com

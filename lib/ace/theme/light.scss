@@ -3,470 +3,162 @@
  */
 @import '../../../../core/src/client-s/css/env';
 
-.ace-light-theme {
-  // Primary colors.
-  color:                      $black-color;
-  background:                 $gallery-color;
-  box-shadow:                 inset 0 0 1px 0 transparentize($black-color, 0.75);
-
-  .ace_search {
-    // Popup search box.
-    max-width:                350px;
-
-    .ace_searchbtn {
-      // All buttons in the search box.
-      width:                  auto;
-      min-width:              25px;
-    }
-  }
-
-  .ace_gutter {
-    // The gutter w/ line numbers.
-    color:                    transparentize($black-color, 0.75);
-    background-color:         darken($gallery-color, 2);
-
-    .ace_gutter-active-line {
-      // Active line represented inside gutter.
-      background-color:       darken($gallery-color, 4);
-    }
-  }
-
-  .ace_scrollbar {
-    // Scrollbars.
-
-    // Safari fix.
-    // Default `6` no worky.
-    z-index:                  3;
-
-    // Scrollbar component.
-    &::-webkit-scrollbar {
-      width:                 .75rem;
-    }
-
-    // Button components (old school).
-    &::-webkit-scrollbar-button {
-      display:                none;
-    }
-
-    // The background track.
-    &::-webkit-scrollbar-track {
-      background:             none;
-    }
-
-    // The part people use.
-    &::-webkit-scrollbar-thumb {
-      border-radius:         .25rem;
-      background:             darken($gallery-color, 12);
-      border:                 1px solid transparentize($black-color, 0.85);
-
-      &:active,
-      &:hover {
-        background:           darken($gallery-color, 10);
-        border-color:         transparentize($black-color, 0.75);
-      }
-    }
-  }
-
-  .ace_cursor-layer {
-    .ace_cursor {
-      // Cursor.
-      color:                  $black-color;
-    }
-  }
-
-  .ace_print-margin-layer {
-    .ace_print-margin {
-      // Margin line.
-      width:                  1px;
-      background-color:       lighten($gallery-color, 3);
-    }
-  }
-
-  .ace_marker-layer {
-    .ace_bracket {
-      // A bracket marker.
-      // However, it seems that only matching brackets
-      // receive this class right now. Separating anyway.
-      border-radius:         .1em;
-      background-color:       transparentize($black-color, 0.85);
-
-      .ace_start {
-        // A starting/matching bracket.
-        border:               1px dashed $alto-color;
-      }
-    }
-
-    .ace_active-line {
-      // The active line.
-      background-color:       darken($gallery-color, 2);
-    }
-
-    .ace_selection {
-      // Any type of selection.
-      background-color:       transparentize($black-color, 0.85);
-    }
-
-    .ace_selected-word {
-      // A selected word.
-      border-radius:         .1em;
-      box-shadow:             0 0 0 1px transparentize($black-color, 0.65);
-
-      ~ .ace_selection.ace_start {
-        // This is actually the currently selected word.
-        // Others may be selected too, but w/o the `.ace_start` class on them.
-        // In short, all others are just instances of the currently selected word.
-        box-shadow:           0 0 0 1px transparentize($yellow-color, 0.65);
-        background-color:     transparentize($yellow-color, 0.65);
-      }
-    }
-
-    .ace_linking {
-      // A clickable link; e.g., on hover.
-      border-bottom:          1px dotted $cornflower-blue-color;
-    }
-
-    .ace_typo {
-      // A typographical error.
-      border-bottom:          1px solid $red-color;
-    }
-  }
-
-  &.ace_multiselect {
-    .ace_marker-layer {
-      // Multiple words selected at the same time.
-      // e.g., When using search to product multiple cursors.
-      .ace_selected-word {
-        box-shadow:           none;
-      }
-
-      ~ .ace_selection.ace_start {
-        // Current in multiple selections.
-        // e.g., Current selection when searching/replacing.
-        box-shadow:           none;
-      }
-    }
-  }
-
-  .ace_text-layer {
-    .ace_fold {
-      // Fold widgets.
-      border-color:           $alto-color;
-      background-color:       $danube-color;
-    }
-
-    .ace_invisible {
-      // Invsible tabs, etc.
-      color:                  lighten($gallery-color, 3);
-
-      &.ace_invisible_eol,
-      &.ace_invisible_space {
-        // Invisible EOL and spaces.
-        color:                lighten($gallery-color, 5);
-      }
-    }
-
-    .ace_indent-guide {
-      // Indentation guides.
-      background:             url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWMQERFpYLC1tf0PAAgOAnPnhxyiAAAAAElFTkSuQmCC') right repeat-y;
-    }
-
-    .ace_comment {
-      // A code comment.
-      opacity:               .35;
-    }
-
-    .ace_heading {
-      // e.g., A MD heading.
-      font-weight:            bold;
-      color:                  $anakiwa-color;
-
-      &.ace_markup {
-        // e.g., # --- heading markup in MD.
-        opacity:             .5 !important;
-      }
-
-      ~ .ace_strong,
-      ~ .ace_emphasis {
-        // Bold/italic in a heading.
-        color:                $anakiwa-color !important;
-      }
-
-      ~ .ace_strong {
-        // Bold in a heading.
-        font-weight:          bolder !important;
-      }
-    }
-
-    .ace_paren {
-      // e.g., () {} []
-      &.ace_lparen,
-      &.ace_rparen {
-        opacity:             .75;
-      }
-    }
-
-    .ace_operator {
-      // = <>, etc.
-      opacity:               .75;
-    }
-
-    .ace_punctuation {
-      // Any punctuation.
-      opacity:               .75;
-    }
-
-    .ace_underline {
-      // Something w/ underline.
-      text-decoration:        underline;
-    }
-
-    .ace_string:not(.ace_other) {
-      // Define early because this is generic.
-      // i.e., Any 'string'; there are many.
-      color:                  $asparagus-color;
-    }
-
-    .ace_escape {
-      // Escape \ + escaped char; e.g., \'
-      font-weight:            bold;
-      color:                  $beryl-green-color;
-    }
-
-    .ace_url {
-      // A URL.
-      text-decoration:        underline;
-      color:                  $cornflower-blue-color;
-
-      &.ace_link-url {
-        // Markdown links.
-        opacity:              0.75;
-        text-decoration:      none;
-
-        &:hover {
-          opacity:            1;
-        }
-      }
-
-      &.ace_image-url {
-        // Leads to an image.
-        text-decoration:      none;
-        color:                $santa-fe-color;
-      }
-    }
-
-    .ace_tag-open,
-    .ace_tag-name,
-    .ace_end-tag-open,
-    .ace_tag-close {
-      // Tag components.
-      font-weight:            bold;
-      color:                  $muesli-color;
-    }
-
-    .ace_attribute-name {
-      // Tag attributes.
-      color:                  $roman-color;
-    }
-
-    .ace_class {
-      // A language class name.
-      font-weight:            bold;
-      color:                  $ronchi-color;
-    }
-
-    .ace_type {
-      // e.g., public, protected, private.
-      color:                  $nepal-color;
-    }
-
-    .ace_variable {
-      // Language variables & parameters.
-      color:                  $bermuda-gray-color;
-
-      .ace_language {
-        // e.g., this, super, self, etc.
-        color:                $bermuda-gray-color;
-      }
-    }
-
-    .ace_keyword {
-      // Language keywords.
-      &:not(.ace_operator) {
-        // Excluding = <>, etc.
-        color:                $laser-color;
-      }
-    }
-
-    .ace_blockquote {
-      // A blockquote.
-      opacity:               .5;
-      font-style:             italic;
-
-      &.ace_markup {
-        // e.g., > markup in MD.
-        opacity:             .35;
-      }
-    }
-
-    .ace_list {
-      // A MD list item.
-      color:                  $kangaroo-color;
-
-      &.ace_markup {
-        // e.g., - * list markup in MD.
-        opacity:             .5;
-      }
-    }
-
-    .ace_constant {
-      // Language constants and misc. symbols.
-      color:                  $raw-sienna-color;
-
-      &.ace_numeric {
-        // Numeric values.
-        font-weight:          lighten($raw-sienna-color, 5);
-      }
-
-      &.ace_definition,
-      &.ace_reference {
-        // MD definitions/references.
-
-        &.ace_abbr-id {
-          // *[ABBR] IDs.
-          opacity:            0.75;
-          text-decoration:    none;
-          color:              $coriander-color;
-          border-bottom:      1px dashed transparentize($black-color, 0.5);
-        }
-
-        &.ace_footnote-id {
-          // [^1]: Footnote IDs.
-          opacity:            0.75;
-          color:              $cornflower-blue-color;
-        }
-
-        &.ace_link-id {
-          // [link]: IDs.
-          opacity:            0.75;
-          color:              $cornflower-blue-color;
-        }
-      }
-    }
-
-    .ace_function {
-      // A language function and code in MD.
-      color:                  $brandy-color;
-
-      &.ace_name {
-        // Function definition.
-        font-weight:          bold;
-      }
-
-      &.ace_inline-code {
-        // Inline code blocks.
-        font-family:          $monospace;
-        color:                $flax-color;
-      }
-
-      &.ace_fenced-code-block {
-        // Fenced code blocks.
-        font-family:          $monospace;
-        color:                $flax-color;
-      }
-
-      &.ace_indented-code-block {
-        // Indented code blocks.
-        opacity:             .75;
-      }
-    }
-
-    .ace_markup {
-      &.ace_hr {
-        // MD HR.
-        opacity:             .5;
-      }
-
-      &.ace_strong {
-        // Bold text.
-        font-weight:          bold;
-      }
-
-      &.ace_emphasis {
-        // Italic text.
-        font-style:           italic;
-      }
-
-      &.ace_checkbox {
-        // MD checkbox.
-        color:                $fuzzy-wuzzy-brown-color;
-      }
-
-      &.ace_attributes {
-        // e.g., MD {attributes}.
-        color:                $fuzzy-wuzzy-brown-color;
-      }
-    }
-
-    .ace_string.ace_other:not(.ace_url) {
-      // Some other string flavor.
-      color:                  $fern-color;
-
-      &.ace_regexp {
-        // Regular expression.
-        font-weight:          bold;
-        color:                $porsche-color;
-      }
-
-      &.ace_link-text {
-        // MD link text.
-        text-decoration:      underline;
-        color:                $cornflower-blue-color;
-      }
-
-      &.ace_image-as-link-text {
-        // MD image as link text.
-        color:                $santa-fe-color;
-      }
-
-      &.ace_link-title {
-        // The 'title' portion of a MD link.
-        color:                $fountain-blue-color;
-      }
-
-      &.ace_image-alt {
-        // [alt text] in MD images.
-        opacity:              0.75;
-        color:                $fountain-blue-color;
-      }
-
-      &.ace_image-title {
-        // The 'title' portion of a MD image.
-        color:                $fountain-blue-color;
-      }
-
-      &.ace_abbr-desc {
-        // *[ABBR]: Description.
-        opacity:             .75;
-        color:                $black-color;
-      }
-
-      &.ace_footnote {
-        // [^1]: Footnote.
-        opacity:             .75;
-        color:                $black-color;
-      }
-    }
-  }
-
-  .ace_invalid {
-    // Errors, warnings, etc.
-    color:                    $white-color;
-    background-color:         $red-berry-color;
-
-    &.ace_deprecated {
-      // Decpreated notices.
-      color:                  $pumice-color;
-      background-color:       $london-hue-color;
-    }
-  }
-}
+/*
+ * Theme.
+ */
+$theme: 'light';
+
+/*
+ * Primary colors.
+ */
+$fg-color: $black-color;
+$bg-color: $white-color;
+
+/*
+ * Gutter.
+ */
+$gutter-color: transparentize($fg-color, 0.75);
+$gutter-bg-color: darken($bg-color, 2%);
+$gutter-active-line-bg-color: darken($bg-color, 4%);
+
+/*
+ * Scrollbar.
+ */
+$scrollbar-thumb-bg-color: darken($bg-color, 12%);
+$scrollbar-thumb-border-color: transparentize($black-color, 0.85);
+
+$scrollbar-thumb-hover-bg-color: darken($bg-color, 10%);
+$scrollbar-thumb-hover-border-color: transparentize($black-color, 0.75);
+
+/*
+ * Cursor layer.
+ */
+$cursor-color: $fg-color;
+
+/*
+ * Print margin layer.
+ */
+$print-margin-bg-color: darken($bg-color, 3%);
+
+/*
+ * Marker layer.
+ */
+$bracket-marker-color: $blaze-orange-color;
+$spellcheck-typo-border-color: $red-color;
+$active-line-bg-color: darken($bg-color, 2%);
+$selection-bg-color: transparentize($fg-color, 0.75);
+$linking-link-hover-border-color: $resolution-blue-color;
+$selected-word-outline-color: transparentize($fg-color, 0.5);
+$selected-word-active-bg-color: transparentize($yellow-color, 0.65);
+$selected-word-active-outline-color: transparentize($fg-color, 0.25);
+
+/*
+ * Text layer.
+ */
+
+/*
+ * Embeds.
+ */
+$declaration-embed-tag-color: $red-berry-color;
+
+/*
+ * Folds.
+ */
+$fold-widget-bg-color: $chambray-color;
+$fold-widget-border-color: $danube-color;
+
+/*
+ * Invisible chars.
+ */
+$invisible-chars-color: darken($bg-color, 3%);
+$invisible-eol-space-color: darken($bg-color, 5%);
+
+/*
+ * Indent guides.
+ */
+$indent-guide-bg: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==') right repeat-y;
+
+/*
+ * Punctuation.
+ */
+$punctuation-color: $dove-gray-color;
+$punctuation-paren-color: $dove-gray-color;
+$punctuation-operator-color: $daisy-bush-color;
+$punctuation-tag-start-end-color: $dove-gray-color;
+$punctuation-string-start-end-color: $fg-color;
+
+/*
+ * General syntax.
+ */
+$gs-identifier-color: $coffee-bean-color;
+$gs-string-color: $fun-green-color;
+$gs-regexp-color: $christalle-color;
+$gs-string-other-color: $fg-color;
+$gs-escape-color: $korma-color;
+$gs-class-color: $dark-tan-color;
+$gs-type-color: $endeavour-color;
+$gs-storage-type-color: $chathams-blue-color;
+$gs-constant-color: $fire-color;
+$gs-constant-numeric-color: $carmine-color;
+$gs-function-color: $county-green-color;
+$gs-construct-color: $fg-color;
+$gs-variable-color: $resolution-blue-color;
+$gs-keyword-color: $fg-color;
+
+/*
+ * XML/HTML tags.
+ */
+$xml-tag-color: $catalina-blue-color;
+$xml-tag-attribute-color: $resolution-blue-color;
+
+/*
+ * Comments.
+ */
+$comment-color: transparentize($fg-color, 0.65);
+$doc-comment-color: transparentize($fg-color, 0.5);
+
+/*
+ * Other, misc.
+ */
+$other-url-color: $resolution-blue-color;
+
+/*
+ * Markdown.
+ */
+$md-heading-color: $catalina-blue-color;
+
+$md-inline-code-color: $red-berry-color;
+$md-fenced-code-block-color: $red-berry-color;
+
+$md-link-id-color: $resolution-blue-color;
+$md-link-text-color: $resolution-blue-color;
+$md-link-title-color: $rose-bud-cherry-color;
+
+$md-image-url-color: $pablo-color;
+$md-image-alt-text-color: $la-palma-color;
+$md-image-title-color: $rose-bud-cherry-color;
+
+$md-list-color: $fg-color;
+$md-checkbox-color: $fun-green-color;
+$md-attributes-color: $fire-color;
+
+$md-abbr-color: $aqua-deep-color;
+$md-abbr-border-color: transparentize($fg-color, 0.5);
+$md-abbr-desc-color: transparentize($fg-color, 0.25);
+
+$md-footnote-id-color: $resolution-blue-color;
+$md-footnote-desc-color: transparentize($fg-color, 0.25);
+
+/*
+ * Errors, warnings.
+ */
+$error-color: $white-color;
+$error-bg-color: $red-berry-color;
+
+$warning-color: $white-color;
+$warning-bg-color: $fire-color;
+
+/*
+ * Selectors.
+ */
+@import 'base/selectors';
