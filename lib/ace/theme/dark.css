@@ -453,6 +453,7 @@
   opacity: .5;
 }
 
+.ace-dark-theme .ace_text-layer .ace_md.ace_heading ~ .ace_strike,
 .ace-dark-theme .ace_text-layer .ace_md.ace_heading ~ .ace_strong,
 .ace-dark-theme .ace_text-layer .ace_md.ace_heading ~ .ace_emphasis {
   color: #b8e0f9;
@@ -534,6 +535,10 @@
 
 .ace-dark-theme .ace_text-layer .ace_md.ace_markup.ace_emphasis {
   font-style: italic;
+}
+
+.ace-dark-theme .ace_text-layer .ace_md.ace_markup.ace_strike {
+  text-decoration: line-through;
 }
 
 .ace-dark-theme .ace_text-layer .ace_md.ace_markup.ace_checkbox {

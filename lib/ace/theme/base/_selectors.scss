@@ -394,9 +394,10 @@
           opacity:           .5;
         }
 
+        ~ .ace_strike,
         ~ .ace_strong,
         ~ .ace_emphasis {
-          // Bold/italic in a heading.
+          // Strike, bold, italic in a heading.
           color:              $md-heading-color;
         }
 
@@ -507,6 +508,10 @@
         &.ace_emphasis {
           // Italic text.
           font-style:         italic;
+        }
+
+        &.ace_strike {
+          text-decoration:    line-through;
         }
 
         &.ace_checkbox {
