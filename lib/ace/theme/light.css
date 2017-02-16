@@ -253,12 +253,12 @@
 
 .ace-light-theme .ace_marker-layer .ace_selected-word {
   border-radius: .1em;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .ace-light-theme .ace_marker-layer .ace_selected-word ~ .ace_selection.ace_start {
   background-color: rgba(255, 255, 0, 0.35);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
 .ace-light-theme .ace_marker-layer .ace_linking {

@@ -48,9 +48,9 @@ $spellcheck-typo-border-color: $red-color;
 $active-line-bg-color: darken($bg-color, 2%);
 $selection-bg-color: transparentize($fg-color, 0.75);
 $linking-link-hover-border-color: $resolution-blue-color;
-$selected-word-outline-color: transparentize($fg-color, 0.5);
+$selected-word-outline-color: transparentize($fg-color, 0.95);
 $selected-word-active-bg-color: transparentize($yellow-color, 0.65);
-$selected-word-active-outline-color: transparentize($fg-color, 0.25);
+$selected-word-active-outline-color: transparentize($fg-color, 0.85);
 
 /*
  * Text layer.
