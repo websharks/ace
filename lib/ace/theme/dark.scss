@@ -17,7 +17,7 @@ $bg-color: $ws-dark-color;
 /*
  * Gutter.
  */
-$gutter-color: transparentize($fg-color, 0.75);
+$gutter-color: rgba($fg-color, 0.25);
 $gutter-bg-color: darken($bg-color, 2%);
 $gutter-active-line-bg-color: darken($bg-color, 4%);
 
@@ -25,10 +25,10 @@ $gutter-active-line-bg-color: darken($bg-color, 4%);
  * Scrollbar.
  */
 $scrollbar-thumb-bg-color: lighten($bg-color, 20%);
-$scrollbar-thumb-border-color: transparentize($black-color, 0.5);
+$scrollbar-thumb-border-color: rgba($black-color, 0.5);
 
 $scrollbar-thumb-hover-bg-color: lighten($bg-color, 25%);
-$scrollbar-thumb-hover-border-color: transparentize($black-color, 0.25);
+$scrollbar-thumb-hover-border-color: rgba($black-color, 0.75);
 
 /*
  * Cursor layer.
@@ -46,11 +46,11 @@ $print-margin-bg-color: lighten($bg-color, 3%);
 $bracket-marker-color: $portafino-color;
 $spellcheck-typo-border-color: $red-color;
 $active-line-bg-color: darken($bg-color, 2%);
-$selection-bg-color: transparentize($fg-color, 0.75);
+$selection-bg-color: rgba($fg-color, 0.25);
 $linking-link-hover-border-color: $cornflower-blue-color;
-$selected-word-outline-color: transparentize($yellow-color, 0.5);
-$selected-word-active-bg-color: transparentize($yellow-color, 0.65);
-$selected-word-active-outline-color: transparentize($yellow-color, 0.25);
+$selected-word-outline-color: rgba($yellow-color, 0.5);
+$selected-word-active-bg-color: rgba($yellow-color, 0.35);
+$selected-word-active-outline-color: rgba($yellow-color, 0.75);
 
 /*
  * Text layer.
@@ -114,8 +114,8 @@ $xml-tag-attribute-color: $polo-blue-color;
 /*
  * Comments.
  */
-$comment-color: transparentize($fg-color, 0.65);
-$doc-comment-color: transparentize($fg-color, 0.5);
+$comment-color: rgba($fg-color, 0.35);
+$doc-comment-color: rgba($fg-color, 0.5);
 
 /*
  * Other, misc.
@@ -143,11 +143,11 @@ $md-checkbox-color: $fuzzy-wuzzy-brown-color;
 $md-attributes-color: $contessa-color;
 
 $md-abbr-color: $coriander-color;
-$md-abbr-border-color: transparentize($fg-color, 0.5);
-$md-abbr-desc-color: transparentize($fg-color, 0.25);
+$md-abbr-border-color: rgba($fg-color, 0.5);
+$md-abbr-desc-color: rgba($fg-color, 0.75);
 
 $md-footnote-id-color: $cornflower-blue-color;
-$md-footnote-desc-color: transparentize($fg-color, 0.25);
+$md-footnote-desc-color: rgba($fg-color, 0.75);
 
 /*
  * Errors, warnings.

@@ -2,94 +2,6 @@
  * Requires local copy of WebSharks Core.
  */
 /*
- * Semantic colors.
- */
-/*
- * Fancy blockquotes.
- */
-/*
- * Fancy monospace tags.
- */
-/*
- * Social network colors.
- */
-/*
- * Our own named colors.
- */
-/*
- * Name that color!
- * <http://chir.ag/projects/name-that-color>
- */
-/*
- * Pixels to rem.
- */
-/*
- * Fancy blockquotes.
- */
-/*
- * Fancy monospace tags.
- */
-/*
- * Fancy navigation menus.
- */
-/*
- * Fancy pagination menus.
- */
-/*
- * Fancy placeholders.
- */
-/*
- * Pixels to rem.
- */
-/*
- * Mixins for responsive tweaks.
- * See: <http://semantic-ui.com/elements/container.html>
- * See: <http://semantic-ui.com/collections/grid.html#device-visibility>
- * See: <http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css>
- */
-/*
- * Larger fonts.
- */
-/*
- * Responsive images.
- */
-/*
- * Highlight.js <pre><code>.
- */
-/*
- * Mixins for responsive tweaks.
- * See: <http://semantic-ui.com/elements/container.html>
- * See: <http://semantic-ui.com/collections/grid.html#device-visibility>
- * See: <http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css>
- */
-/*
- * Align utils.
- */
-/*
- * Blurred utils.
- */
-/*
- * Box shadow utilities.
- */
-/*
- * Content utils.
- */
-/*
- * Display utils.
- */
-/*
- * Line clamp utils.
- */
-/*
- * Muted utils.
- */
-/*
- * Responsive utils.
- */
-/*
- * Text shadow utilities.
- */
-/*
  * Theme.
  */
 /*
@@ -155,7 +67,6 @@
    */
   color: #000;
   background-color: #fff;
-  -webkit-font-smoothing: antialiased;
   /*
    * Search box.
    */
@@ -375,7 +286,6 @@
 .ace-light-theme .ace_text-layer .ace_escape {
   font-weight: bold;
   color: #8f4b0e;
-  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .ace-light-theme .ace_text-layer .ace_class {
@@ -512,12 +422,12 @@
 }
 
 .ace-light-theme .ace_text-layer .ace_md.ace_function.ace_inline-code {
-  font-family: "Hack", "Menlo", "Monaco", "Consolas", "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-family: "operator mono", "monaco", monospace;
   color: #8e0000;
 }
 
 .ace-light-theme .ace_text-layer .ace_md.ace_function.ace_fenced-code-block, .ace-light-theme .ace_text-layer .ace_md.ace_function.ace_indented-code-block {
-  font-family: "Hack", "Menlo", "Monaco", "Consolas", "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-family: "operator mono", "monaco", monospace;
   color: #8e0000;
 }
 

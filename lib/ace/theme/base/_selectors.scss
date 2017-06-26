@@ -5,7 +5,6 @@
 
   color:                      $fg-color;
   background-color:           $bg-color;
-  -webkit-font-smoothing:     antialiased;
 
   /*
    * Search box.
@@ -277,7 +276,6 @@
       // Escaped char.
       font-weight:            bold;
       color:                  $gs-escape-color;
-      -webkit-font-smoothing: subpixel-antialiased;
     }
 
     .ace_class {
@@ -476,7 +474,7 @@
       &.ace_function {
         &.ace_inline-code {
           // Inline code blocks.
-          font-family:        $monospace;
+          font-family:        $mono;
           color:              $md-inline-code-color;
         }
 
@@ -484,7 +482,7 @@
         &.ace_indented-code-block {
           // Fenced code blocks.
           // Indented code blocks.
-          font-family:        $monospace;
+          font-family:        $mono;
           color:              $md-fenced-code-block-color;
         }
 
